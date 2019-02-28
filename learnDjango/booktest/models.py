@@ -9,6 +9,7 @@ class HeroInfo(models.Model):
     hgender = models.BooleanField()
     hcontent = models.CharField(max_length=1000)
     hbook = models.ForeignKey(BookInfo)#¶¨ÒåÍâ¼ü
+    #cehsi
 
 
 
