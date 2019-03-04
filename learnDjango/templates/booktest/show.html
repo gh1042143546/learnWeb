@@ -6,9 +6,9 @@
 </head>
 <body>
 <ul>
-    {% for book in list %} <!--%执行python代码， endfor结尾% -->
+    {% for hero in list %} <!--%执行python代码， endfor结尾% -->
         <li>
-        <a href="{{ book.id}}">{{ book.btitle}}</a><!--输出python中变量-->
+        {{hero.hname}}
         </li>
     {% endfor %}
 </ul>
