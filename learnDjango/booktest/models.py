@@ -6,7 +6,7 @@ class BookInfo(models.Model):#模型类去使用必须继续models.Model，才能用对象去操作
     bpub_date = models.DateTimeField()
     def __str__(self):
         #return self.btitle.encode('utf-8')
-        return self.btitle #pythn3写法
+        return self.btitle #pythn3写法s
 class HeroInfo(models.Model):
     hname = models.CharField(max_length=10)
     hgender = models.BooleanField()
