@@ -1,23 +1,33 @@
+# -*- coding:utf-8 -*-
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 
-class BookInfoManager(models.Manager):#×Ô¶¨Òå¹ÜÀíÆ÷Àà
-    def get_queryset(self):
-        return super(BookInfoManager, self).get_queryset().filter(isDelete=False)
-
-class BookInfo(models.Model):#Ä£ĞÍÀàÈ¥Ê¹ÓÃ±ØĞë¼ÌĞømodels.Model£¬²ÅÄÜÓÃ¶ÔÏóÈ¥²Ù×÷Êı¾İ¿â
+class BookInfoManager(models.Manager):#è‡ªå®šä¹‰ç®¡ç†å™¨ç±»
+    #def get_queryset(self):
+        #return super(BookInfoManager, self).get_queryset().filter(isDelete=False)
+    def create_book(self,title,pubdate):
+        book = BookInfo()
+        book.btitle = title
+        book.bpub_date = pubdate
+        book.bread = 0
+        book.bcommet = 0
+        book.isDelete = False
+        return book
+class BookInfo(models.Model):#æ¨¡å‹ç±»å»ä½¿ç”¨å¿…é¡»ç»§ç»­models.Modelï¼Œæ‰èƒ½ç”¨å¯¹è±¡å»æ“ä½œæ•°æ®åº“
     btitle = models.CharField(max_length=20)
     bpub_date = models.DateTimeField()
     bread = models.IntegerField(default=0)
     bcommet = models.IntegerField(default=0)
     isDelete = models.BooleanField(default=False)
-    boots2 = BookInfoManager()#µ÷ÓÃ×Ô¶¨Òå¹ÜÀíÆ÷Àà
-    #class Meta:¶¨ÒåÔªÀà
-        #db_table='bookinfo'#¶¨Òå±íµÄÃû³Æ
+    boots2 = BookInfoManager()#è°ƒç”¨è‡ªå®šä¹‰ç®¡ç†å™¨ç±»
+    #class Meta:å®šä¹‰å…ƒç±»
+        #db_table='bookinfo'#å®šä¹‰è¡¨çš„åç§°
 class HeroInfo(models.Model):
     hhname = models.CharField(max_length=10)
     hgender = models.BooleanField()
     hcontent = models.CharField(max_length=1000)
     isDelete = models.BooleanField(default=False)
-    hbook = models.ForeignKey(BookInfo)#¶¨ÒåÍâ¼ü
+    hbook = models.ForeignKey(BookInfo)#å®šä¹‰å¤–é”®
+#bookt = BookInfo.boots2.create_book('abc',datetime(1980,1,1))#è°ƒç”¨
+#bookt.save()
