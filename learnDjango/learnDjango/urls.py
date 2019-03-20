@@ -18,5 +18,5 @@ from django.contrib import admin
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^',include('booktest.urls'))#会去booktest文件夹下找urls文件
+    url(r'^booktest/',include('booktest.urls'))#会去booktest文件夹下找urls文件
 ]
