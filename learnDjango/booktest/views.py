@@ -1,17 +1,31 @@
+# -*- coding:utf-8 -*-
 from django.shortcuts import render
 from django.http import *
 from django.template import RequestContext,loader
 from .models import *
 # Create your views here.
 
-def index(request):#µÚÒ»¸ö²ÎÊıÊÇrequest
-    #temp = loader.get_template('booktest/index.html')#¼ÓÔØÄ£°å,·µ»ØÒ»¸öÄ£°å¶ÔÏó
-    #return HttpResponse(temp.render())#render()äÖÈ¾Ä£°å
+def index(request):#ç¬¬ä¸€ä¸ªå‚æ•°æ˜¯request
+    #temp = loader.get_template('booktest/index.html')#åŠ è½½æ¨¡æ¿,è¿”å›ä¸€ä¸ªæ¨¡æ¿å¯¹è±¡
+    #return HttpResponse(temp.render())#render()æ¸²æŸ“æ¨¡æ¿
     booklist = BookInfo.objects.all()
     context = {'list':booklist}
-    return render(request,'booktest/index.html',context)#äÖÈ¾Ä£°å,¼ÓÔØ
-def show(request,id):
+    return render(request,'booktest/index.html',context)#æ¸²æŸ“æ¨¡æ¿,åŠ è½½
+def show(request,id):#æ¥æ”¶æ­£åˆ™æå–å‡ºæ¥çš„å€¼
     book = BookInfo.objects.get(pk=id)
     herelist = book.heroinfo_set.all()
     context = {'list':herelist}
     return render(request,'booktest/show.html',context)
+def getTest1(request):
+    return render(request,'booktest/getTest1.html')
+def getTest2(request):
+    #æ ¹æ®é”®æ¥æ”¶å€¼
+    a = request.GET['a']
+    b = request.GET['b']
+    context = {'a':a,'b':b}
+    return render(request,'booktest/getTest2.html',context)
+def getTest3(request):
+    a = request.GET.getlist('a')
+    b = request.GET['b']
+    context = {'a':a,'b':b}
+    return render(request,'booktest/getTest3.html',context)

@@ -1,19 +1,19 @@
 from django.db import models
-
+# -*- coding:utf-8 -*-
 # Create your models here.
-class BookInfo(models.Model):#Ä£ĞÍÀàÈ¥Ê¹ÓÃ±ØĞë¼ÌĞømodels.Model£¬²ÅÄÜÓÃ¶ÔÏóÈ¥²Ù×÷Êı¾İ¿â
+class BookInfo(models.Model):#æ¨¡å‹ç±»å»ä½¿ç”¨å¿…é¡»ç»§ç»­models.Modelï¼Œæ‰èƒ½ç”¨å¯¹è±¡å»æ“ä½œæ•°æ®åº“
     btitle = models.CharField(max_length=20)
     bpub_date = models.DateTimeField()
     def __str__(self):
         #return self.btitle.encode('utf-8')
-        return self.btitle #pythn3Ğ´·¨s
+        return self.btitle #pythn3å†™æ³•s
 class HeroInfo(models.Model):
     hname = models.CharField(max_length=10)
     hgender = models.BooleanField()
     hcontent = models.CharField(max_length=1000)
-    hbook = models.ForeignKey(BookInfo)#¶¨ÒåÍâ¼ü
+    hbook = models.ForeignKey(BookInfo)#å®šä¹‰å¤–é”®
     def __str__(self):
-        #return self.hname.encode('utf-8')  #ÓÃadmin½øĞĞºóÌ¨½øĞĞ±íÌí¼ÓÊı¾İÊ±Õ¹Ê¾µÄÎÄ×Ö
+        #return self.hname.encode('utf-8')  #ç”¨adminè¿›è¡Œåå°è¿›è¡Œè¡¨æ·»åŠ æ•°æ®æ—¶å±•ç¤ºçš„æ–‡å­—
         return self.hname
 
 
