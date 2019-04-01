@@ -44,7 +44,7 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -100,7 +100,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'zh-hans'#'en-us'
 
-TIME_ZONE = 'Asia/Shanghai'#'UTC'修改时区
+TIME_ZONE = 'Asia/Shanghai'#'UTC'锟睫革拷时锟斤拷
 
 USE_I18N = True
 
