@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import *
 from django.template import RequestContext,loader
 from .models import *
@@ -40,4 +40,19 @@ def postTest2(request):
     uhobby = request.POST.getlist('uhobby')
     context = {'uname':uname,'upwd':upwd,'ugender':ugender,'uhobby':uhobby}
     return render(request,'booktest/postTest2.html',context)
+#cookie 练习
+def cookieTest(request):
+    #request.COOKIES
+    response=HttpResponse()
+    cookie = request.COOKIES
+    if cookie.__contains__('t1'):
+        response.write(cookie['t1'])
+    #response.set_cookie('t1','abc')服务端设置cookie值，浏览器请求后保存该值，后面再次请求这个网站时自动带上cookie的值
+    return response
 
+#重定向练习
+def redTest1(request):
+    #return HttpResponseRedirect('/booktest/redTest2/')
+    return redirect('/booktest/redTest2/')
+def redTest2(request):
+    return HttpResponse("重定向")

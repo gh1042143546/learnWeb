@@ -12,6 +12,8 @@ urlpatterns=[
     url(r'^getTest2/$',views.getTest2),
     url(r'^getTest3/$',views.getTest3),
     url(r'^postTest1/$',views.postTest1),
-    url(r'^postTest2/$',views.postTest2)
-    #url(r'^getTest3/$',views.getTest3)
+    url(r'^postTest2/$',views.postTest2),
+    url(r'^cookieTest/$',views.cookieTest),
+    url(r'^redTest1/$',views.redTest1),
+    url(r'^redTest2/$',views.redTest2)
 ]
