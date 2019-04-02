@@ -56,3 +56,5 @@ def redTest1(request):
     return redirect('/booktest/redTest2/')
 def redTest2(request):
     return HttpResponse("重定向")
+
+#session练习
