@@ -58,3 +58,20 @@ def redTest2(request):
     return HttpResponse("重定向")
 
 #session练习
+def session1(request):
+    uname=request.session.get('myname','未登录')
+    #uname = None
+    context = {'uname':uname}
+    return render(request,'booktest/session1.html',context)
+def session2(request):
+    return render(request,'booktest/session2.html')
+def session_handle(request):
+    request.session['myname']=request.POST['uname']
+    return redirect('/booktest/session1/')
+
+def session3(request):
+    #删除session
+    del request.session['myname']
+    return redirect('/booktest/session1/')
+
+
