@@ -67,6 +67,7 @@ def session2(request):
     return render(request,'booktest/session2.html')
 def session_handle(request):
     request.session['myname']=request.POST['uname']
+    request.session.set_expiry(0)#设置有效时间，关闭浏览器失效
     return redirect('/booktest/session1/')
 
 def session3(request):
@@ -74,4 +75,4 @@ def session3(request):
     del request.session['myname']
     return redirect('/booktest/session1/')
 
-
+#session依赖于cookie，cookie中的sessionID就是用来传递session值的
